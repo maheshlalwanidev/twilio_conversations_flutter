@@ -557,6 +557,8 @@ class ConversationClient extends FlutterConversationClientApi {
     final conversation = conversations[conversationSid];
     if (conversation != null) {
       conversation.participantUpdated(participantData, reason);
+      _onConversationUpdatedCtrl
+          .add(ConversationUpdatedEvent(conversation, ConversationUpdateReason.LAST_READ_MESSAGE_INDEX));
     }
   }
 
