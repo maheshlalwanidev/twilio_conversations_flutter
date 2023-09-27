@@ -264,17 +264,17 @@ class ConversationMethods: NSObject, TWCONConversationApi {
                 )
             }
             
-            // do {
-            //     messageOptions.withAttributes(messageAttributes!)
-            // } catch {
-            //     return completion(
-            //         nil,
-            //         FlutterError(
-            //             code: "MissingParameterException",
-            //             message: "Could not convert 'attributes' to valid TCHJsonAttributes",
-            //             details: nil)
-            //     )
-            // }
+            do {
+                messageOptions.withAttributes(messageAttributes!)
+            } catch {
+                return completion(
+                    nil,
+                    FlutterError(
+                        code: "MissingParameterException",
+                        message: "Could not convert 'attributes' to valid TCHJsonAttributes",
+                        details: nil)
+                )
+            }
             
         if let input = options.inputPath {
             guard let mimeType = options.mimeType else {
